@@ -99,3 +99,5 @@ new_pred<-predict(mod_rf,Testing,type="class")
 new_pred
 plot(new_pred,main="Prediction of classe in the 20 test set",xlab="classe",ylab="frequency")
 ```
+# write to file
+with code rmarkdown::render("Assignment.Rmd")
