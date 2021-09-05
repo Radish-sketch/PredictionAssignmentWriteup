@@ -1,0 +1,35 @@
+---
+title: "Prediction Assignment Writeup"
+author: "Luying Feng"
+date: "05/09/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Summary
+
+The goal of the project is to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants to predict the manner in which they did the exercise. This is the "classe" variable in the training set.
+The report describes the model, cross validation, expected out of sample error, and why the choices are made. 
+The prediction model is also used to predict 20 different test cases.
+
+The data for this project come from this source: http://web.archive.org/web/20161224072740/http:/groupware.les.inf.puc-rio.br/har.
+
+# Import data
+```{r ImData}
+getwd()
+setwd("...")
+
+fileUrlTrain<-"https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv "
+download.file(fileUrlTrain,destfile = ".\\Training.csv",mode='wb',cacheOK = FALSE)
+
+fileUrlTest<-"https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv "
+download.file(fileUrlTest,destfile = ".\\Testing.csv",mode='wb',cacheOK = FALSE)
+
+Training<-read.csv(".\\Training.csv")
+Testing<-read.csv(".\\Testing.csv")
+    
+```
+
